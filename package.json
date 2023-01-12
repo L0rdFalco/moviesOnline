@@ -1,0 +1,29 @@
+{
+  "name": "moviesonline",
+  "version": "1.0.0",
+  "description": "watch movies online for free",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tel3port/moviesOnline.git"
+  },
+  "keywords": [
+    "watch",
+    "movies",
+    "online",
+    "free"
+  ],
+  "author": "xAvier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tel3port/moviesOnline/issues"
+  },
+  "homepage": "https://github.com/tel3port/moviesOnline#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
