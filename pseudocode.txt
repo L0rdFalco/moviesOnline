@@ -1,0 +1,27 @@
+controllers
+    viewsController
+        getHomePage
+        getDetailPage
+        getSingleMovie
+        getDashboard
+
+    authController
+        protect
+        restrictTo
+        isLoggedIn
+        login
+        signup
+        googleAuth
+
+
+routers
+    viewsRouter
+        home-page
+        detail-page
+        dashboard
+
+    usersRouter
+        
+
+models
+    usersModel
