@@ -21,6 +21,8 @@ routers
         dashboard
 
     usersRouter
+        signup
+        login
         
 
 models
