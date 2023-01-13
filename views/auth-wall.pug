@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/assets/css/social_auth.css')
+    title watch movies online
+  body
+    form#login-form(action='#')
+      .heading Login
+      .left
+        label(for='email') Email
+        |  
+        br
+        input#email(type='email', name='email')
+        |  
+        br
+        label(for='password') Password
+        |  
+        br
+        input#pass(type='password', name='password')
+        |  
+        br
+        input(type='submit', value='Login')
+      .right
+        .connect Connect with
+        a.facebook(href='') facebook
+          // <span class="fontawesome-facebook"></span>
+          i.fa.fa-facebook(aria-hidden='true')
+        |  
+        br
+        a.twitter(href='') twitter
+          // <span class="fontawesome-twitter"></span>
+          i.fa.fa-twitter(aria-hidden='true')
+        |  
+        br
+        a.google-plus(href='/users/google-login') google plus
+          // <span class="fontawesome-google-plus"></span>
+          i.fa.fa-google-plus(aria-hidden='true')
+          
+    script(src="/assets/js/auth.js")   
