@@ -36,6 +36,15 @@ exports.getTypePage = (request, response, next) => {
     }
 }
 
+exports.getResultsPage = (request, response, next) => {
+    try {
+        response.status(200).render("results")
+
+    } catch (error) {
+        response.status(400).json({ status: "getResultsPage fail" })
+    }
+}
+
 exports.getDashboard = (request, response, next) => {
     try {
         response.status(200).render("dashboard")
