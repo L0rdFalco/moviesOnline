@@ -1,519 +1,387 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title free movies Online - Best movie collections
-    //
-      - favicon
-    link(rel='shortcut icon', href='./favicon.svg', type='image/svg+xml')
-    //
-      - custom css link
-    link(rel='stylesheet', href='/assets/css/style.css')
-    //
-      - google font link
-    link(rel='preconnect', href='https://fonts.googleapis.com')
-    link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
-    link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap', rel='stylesheet')
-  body#top
-    //
-      - #HEADER
-    header.header(data-header='')
-      .container
-        .overlay(data-overlay='')
-        a.logo(href='./index.html')
-          img(src='./assets/images/logo.svg', alt='Filmlane logo')
-        .header-actions
-          button.search-btn
-            ion-icon(name='search-outline')
-          .lang-wrapper
-            label(for='language')
-              ion-icon(name='globe-outline')
-            select#language(name='language')
-              option(value='en') EN
-              option(value='au') AU
-              option(value='ar') AR
-              option(value='tu') TU
-          button.btn.btn-primary Sign in
-        button.menu-open-btn(data-menu-open-btn='')
-          ion-icon(name='reorder-two')
-        nav.navbar(data-navbar='')
-          .navbar-top
-            a.logo(href='./index.html')
-              img(src='./assets/images/logo.svg', alt='Filmlane logo')
-            button.menu-close-btn(data-menu-close-btn='')
-              ion-icon(name='close-outline')
-          ul.navbar-list
-            li
-              a.navbar-link(href='./index.html') Home
-            li
-              a.navbar-link(href='#') Movie
-            li
-              a.navbar-link(href='#') Tv Show
-            li
-              a.navbar-link(href='#') Web Series
-            li
-              a.navbar-link(href='#') Pricing
-          ul.navbar-social-list
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-twitter')
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-facebook')
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-pinterest')
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-instagram')
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-youtube')
-    main
-      article
-        //
-          - #HERO
-        section.hero
-          .container
-            .hero-content
-              p.hero-subtitle Filmlane
-              h1.h1.hero-title
-                | Unlimited 
-                strong Movie
-                | , TVs Shows, &amp; More.
-              .meta-wrapper
-                .badge-wrapper
-                  .badge.badge-fill PG 18
-                  .badge.badge-outline HD
-                .ganre-wrapper
-                  a(href='#') Romance,
-                  a(href='#') Drama
-                .date-time
-                  div
-                    ion-icon(name='calendar-outline')
-                    time(datetime='2022') 2022
-                  div
-                    ion-icon(name='time-outline')
-                    time(datetime='PT128M') 128 min
-              button.btn.btn-primary
-                ion-icon(name='play')
-                span Watch now
-        //
-          - #UPCOMING
-        section.upcoming
-          .container
-            .flex-wrapper
-              .title-wrapper
-                p.section-subtitle Online Streaming
-                h2.h2.section-title Upcoming Movies
-              ul.filter-list
-                li
-                  button.filter-btn Movies
-                li
-                  button.filter-btn TV Shows
-                li
-                  button.filter-btn Anime
-            ul.movies-list.has-scrollbar
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/upcoming-1.png', alt='The Northman movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title The Northman
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline HD
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT137M') 137 min
-                    .rating
-                      ion-icon(name='star')
-                      data 8.5
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/upcoming-2.png', alt='Doctor Strange in the Multiverse of Madness movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Doctor Strange in the Multiverse of Madness
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline 4K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT126M') 126 min
-                    .rating
-                      ion-icon(name='star')
-                      data NR
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/upcoming-3.png', alt='Memory movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Memory
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline 2K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='') N/A
-                    .rating
-                      ion-icon(name='star')
-                      data NR
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/upcoming-4.png', alt='The Unbearable Weight of Massive Talent movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title The Unbearable Weight of Massive Talent
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline HD
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT107M') 107 min
-                    .rating
-                      ion-icon(name='star')
-                      data NR
-        //
-          - #SERVICE
-        section.service
-          .container
-            .service-banner
-              figure
-                img(src='./assets/images/service-banner.jpg', alt='HD 4k resolution! only $3.99')
-              a.service-btn(href='./assets/images/service-banner.jpg', download='')
-                span Download
-                ion-icon(name='download-outline')
-            .service-content
-              p.service-subtitle Our Services
-              h2.h2.service-title Download Your Shows Watch Offline.
-              p.service-text
-                | Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many variations of
-                | passages of lorem
-                | Ipsum available, but the majority have suffered alteration in some injected humour.
-              ul.service-list
-                li
-                  .service-card
-                    .card-icon
-                      ion-icon(name='tv')
-                    .card-content
-                      h3.h3.card-title Enjoy on Your TV.
-                      p.card-text
-                        | Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
-                li
-                  .service-card
-                    .card-icon
-                      ion-icon(name='videocam')
-                    .card-content
-                      h3.h3.card-title Watch Everywhere.
-                      p.card-text
-                        | Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
-        //
-          - #TOP RATED
-        section.top-rated
-          .container
-            p.section-subtitle Online Streaming
-            h2.h2.section-title Top Rated Movies
+extends base
+block content 
+  main
+    article
+      //
+        - #HERO
+      section.hero
+        .container
+          .hero-content
+            p.hero-subtitle Filmlane
+            h1.h1.hero-title
+              | Unlimited 
+              strong Movie
+              | , TVs Shows, &amp; More.
+            .meta-wrapper
+              .badge-wrapper
+                .badge.badge-fill PG 18
+                .badge.badge-outline HD
+              .ganre-wrapper
+                a(href='#') Romance,
+                a(href='#') Drama
+              .date-time
+                div
+                  ion-icon(name='calendar-outline')
+                  time(datetime='2022') 2022
+                div
+                  ion-icon(name='time-outline')
+                  time(datetime='PT128M') 128 min
+            button.btn.btn-primary
+              ion-icon(name='play')
+              span Watch now
+      //
+        - #UPCOMING
+      section.upcoming
+        .container
+          .flex-wrapper
+            .title-wrapper
+              p.section-subtitle Online Streaming
+              h2.h2.section-title Upcoming Movies
             ul.filter-list
               li
                 button.filter-btn Movies
               li
                 button.filter-btn TV Shows
               li
-                button.filter-btn Documentary
-              li
-                button.filter-btn Sports
-            ul.movies-list
-              li
-                .movie-card
+                button.filter-btn Anime
+          ul.movies-list.has-scrollbar
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/upcoming-1.png', alt='The Northman movie poster')
+                .title-wrapper
                   a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/movie-1.png', alt='Sonic the Hedgehog 2 movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Sonic the Hedgehog 2
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline 2K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT122M') 122 min
-                    .rating
-                      ion-icon(name='star')
-                      data 7.8
-              li
-                .movie-card
+                    h3.card-title The Northman
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline HD
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT137M') 137 min
+                  .rating
+                    ion-icon(name='star')
+                    data 8.5
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/upcoming-2.png', alt='Doctor Strange in the Multiverse of Madness movie poster')
+                .title-wrapper
                   a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/movie-2.png', alt='Morbius movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Morbius
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline HD
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT104M') 104 min
-                    .rating
-                      ion-icon(name='star')
-                      data 5.9
-              li
-                .movie-card
+                    h3.card-title Doctor Strange in the Multiverse of Madness
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline 4K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT126M') 126 min
+                  .rating
+                    ion-icon(name='star')
+                    data NR
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/upcoming-3.png', alt='Memory movie poster')
+                .title-wrapper
                   a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/movie-3.png', alt='The Adam Project movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title The Adam Project
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline 4K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT106M') 106 min
-                    .rating
-                      ion-icon(name='star')
-                      data 7.0
-              li
-                .movie-card
+                    h3.card-title Memory
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline 2K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='') N/A
+                  .rating
+                    ion-icon(name='star')
+                    data NR
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/upcoming-4.png', alt='The Unbearable Weight of Massive Talent movie poster')
+                .title-wrapper
                   a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/movie-4.png', alt='Free Guy movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Free Guy
-                    time(datetime='2021') 2021
-                  .card-meta
-                    .badge.badge-outline 4K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT115M') 115 min
-                    .rating
-                      ion-icon(name='star')
-                      data 7.7
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/movie-5.png', alt='The Batman movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title The Batman
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline 4K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT176M') 176 min
-                    .rating
-                      ion-icon(name='star')
-                      data 7.9
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/movie-6.png', alt='Uncharted movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Uncharted
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline HD
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT116M') 116 min
-                    .rating
-                      ion-icon(name='star')
-                      data 7.0
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/movie-7.png', alt='Death on the Nile movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Death on the Nile
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline 2K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT127M') 127 min
-                    .rating
-                      ion-icon(name='star')
-                      data 6.5
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/movie-8.png', alt="The King's Man movie poster")
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title The King&apos;s Man
-                    time(datetime='2021') 2021
-                  .card-meta
-                    .badge.badge-outline HD
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT131M') 131 min
-                    .rating
-                      ion-icon(name='star')
-                      data 7.0
-        //
-          - #TV SERIES
-        section.tv-series
-          .container
-            p.section-subtitle Best TV Series
-            h2.h2.section-title World Best TV Series
-            ul.movies-list
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/series-1.png', alt='Moon Knight movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Moon Knight
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline 2K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT47M') 47 min
-                    .rating
-                      ion-icon(name='star')
-                      data 8.6
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/series-2.png', alt='Halo movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Halo
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline 2K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT59M') 59 min
-                    .rating
-                      ion-icon(name='star')
-                      data 8.8
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/series-3.png', alt='Vikings: Valhalla movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Vikings: Valhalla
-                    time(datetime='2022') 2022
-                  .card-meta
-                    .badge.badge-outline 2K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT51M') 51 min
-                    .rating
-                      ion-icon(name='star')
-                      data 8.3
-              li
-                .movie-card
-                  a(href='./movie-details.html')
-                    figure.card-banner
-                      img(src='./assets/images/series-4.png', alt='Money Heist movie poster')
-                  .title-wrapper
-                    a(href='./movie-details.html')
-                      h3.card-title Money Heist
-                    time(datetime='2017') 2017
-                  .card-meta
-                    .badge.badge-outline 4K
-                    .duration
-                      ion-icon(name='time-outline')
-                      time(datetime='PT70M') 70 min
-                    .rating
-                      ion-icon(name='star')
-                      data 8.3
-        //
-          - #CTA
-        section.cta
-          .container
-            .title-wrapper
-              h2.cta-title Trial start first 30 days.
-              p.cta-text
-                | Enter your email to create or restart your membership.
-            form.cta-form(action='')
-              input.email-field(type='email', name='email', required='', placeholder='Enter your email')
-              button.cta-form-btn(type='submit') Get started
-    //
-      - #FOOTER
-    footer.footer
-      .footer-top
+                    h3.card-title The Unbearable Weight of Massive Talent
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline HD
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT107M') 107 min
+                  .rating
+                    ion-icon(name='star')
+                    data NR
+      //
+        - #SERVICE
+      section.service
         .container
-          .footer-brand-wrapper
-            a.logo(href='./index.html')
-              img(src='./assets/images/logo.svg', alt='Filmlane logo')
-            ul.footer-list
+          .service-banner
+            figure
+              img(src='./assets/images/service-banner.jpg', alt='HD 4k resolution! only $3.99')
+            a.service-btn(href='./assets/images/service-banner.jpg', download='')
+              span Download
+              ion-icon(name='download-outline')
+          .service-content
+            p.service-subtitle Our Services
+            h2.h2.service-title Download Your Shows Watch Offline.
+            p.service-text
+              | Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many variations of
+              | passages of lorem
+              | Ipsum available, but the majority have suffered alteration in some injected humour.
+            ul.service-list
               li
-                a.footer-link(href='./index.html') Home
+                .service-card
+                  .card-icon
+                    ion-icon(name='tv')
+                  .card-content
+                    h3.h3.card-title Enjoy on Your TV.
+                    p.card-text
+                      | Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
               li
-                a.footer-link(href='#') Movie
-              li
-                a.footer-link(href='#') TV Show
-              li
-                a.footer-link(href='#') Web Series
-              li
-                a.footer-link(href='#') Pricing
-          .divider
-          .quicklink-wrapper
-            ul.quicklink-list
-              li
-                a.quicklink-link(href='#') Faq
-              li
-                a.quicklink-link(href='#') Help center
-              li
-                a.quicklink-link(href='#') Terms of use
-              li
-                a.quicklink-link(href='#') Privacy
-            ul.social-list
-              li
-                a.social-link(href='#')
-                  ion-icon(name='logo-facebook')
-              li
-                a.social-link(href='#')
-                  ion-icon(name='logo-twitter')
-              li
-                a.social-link(href='#')
-                  ion-icon(name='logo-pinterest')
-              li
-                a.social-link(href='#')
-                  ion-icon(name='logo-linkedin')
-      .footer-bottom
+                .service-card
+                  .card-icon
+                    ion-icon(name='videocam')
+                  .card-content
+                    h3.h3.card-title Watch Everywhere.
+                    p.card-text
+                      | Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod tempor.
+      //
+        - #TOP RATED
+      section.top-rated
         .container
-          p.copyright
-            | &copy; 2022 
-            a(href='#') codewithsadee
-            | . All Rights Reserved
-          img.footer-bottom-img(src='./assets/images/footer-bottom-img.png', alt='Online banking companies logo')
-    //
-      - #GO TO TOP
-    a.go-top(href='#top', data-go-top='')
-      ion-icon(name='chevron-up')
-    //
-      - custom js link
-    script(src='./assets/js/script.js')
-    //
-      - ionicon link
-    script(type='module', src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js')
-    script(nomodule='', src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js')
+          p.section-subtitle Online Streaming
+          h2.h2.section-title Top Rated Movies
+          ul.filter-list
+            li
+              button.filter-btn Movies
+            li
+              button.filter-btn TV Shows
+            li
+              button.filter-btn Documentary
+            li
+              button.filter-btn Sports
+          ul.movies-list
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/movie-1.png', alt='Sonic the Hedgehog 2 movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title Sonic the Hedgehog 2
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline 2K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT122M') 122 min
+                  .rating
+                    ion-icon(name='star')
+                    data 7.8
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/movie-2.png', alt='Morbius movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title Morbius
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline HD
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT104M') 104 min
+                  .rating
+                    ion-icon(name='star')
+                    data 5.9
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/movie-3.png', alt='The Adam Project movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title The Adam Project
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline 4K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT106M') 106 min
+                  .rating
+                    ion-icon(name='star')
+                    data 7.0
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/movie-4.png', alt='Free Guy movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title Free Guy
+                  time(datetime='2021') 2021
+                .card-meta
+                  .badge.badge-outline 4K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT115M') 115 min
+                  .rating
+                    ion-icon(name='star')
+                    data 7.7
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/movie-5.png', alt='The Batman movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title The Batman
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline 4K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT176M') 176 min
+                  .rating
+                    ion-icon(name='star')
+                    data 7.9
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/movie-6.png', alt='Uncharted movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title Uncharted
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline HD
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT116M') 116 min
+                  .rating
+                    ion-icon(name='star')
+                    data 7.0
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/movie-7.png', alt='Death on the Nile movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title Death on the Nile
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline 2K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT127M') 127 min
+                  .rating
+                    ion-icon(name='star')
+                    data 6.5
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/movie-8.png', alt="The King's Man movie poster")
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title The King&apos;s Man
+                  time(datetime='2021') 2021
+                .card-meta
+                  .badge.badge-outline HD
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT131M') 131 min
+                  .rating
+                    ion-icon(name='star')
+                    data 7.0
+      //
+        - #TV SERIES
+      section.tv-series
+        .container
+          p.section-subtitle Best TV Series
+          h2.h2.section-title World Best TV Series
+          ul.movies-list
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/series-1.png', alt='Moon Knight movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title Moon Knight
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline 2K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT47M') 47 min
+                  .rating
+                    ion-icon(name='star')
+                    data 8.6
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/series-2.png', alt='Halo movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title Halo
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline 2K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT59M') 59 min
+                  .rating
+                    ion-icon(name='star')
+                    data 8.8
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/series-3.png', alt='Vikings: Valhalla movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title Vikings: Valhalla
+                  time(datetime='2022') 2022
+                .card-meta
+                  .badge.badge-outline 2K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT51M') 51 min
+                  .rating
+                    ion-icon(name='star')
+                    data 8.3
+            li
+              .movie-card
+                a(href='./movie-details.html')
+                  figure.card-banner
+                    img(src='./assets/images/series-4.png', alt='Money Heist movie poster')
+                .title-wrapper
+                  a(href='./movie-details.html')
+                    h3.card-title Money Heist
+                  time(datetime='2017') 2017
+                .card-meta
+                  .badge.badge-outline 4K
+                  .duration
+                    ion-icon(name='time-outline')
+                    time(datetime='PT70M') 70 min
+                  .rating
+                    ion-icon(name='star')
+                    data 8.3
+      //
+        - #CTA
+      section.cta
+        .container
+          .title-wrapper
+            h2.cta-title Trial start first 30 days.
+            p.cta-text
+              | Enter your email to create or restart your membership.
+          form.cta-form(action='')
+            input.email-field(type='email', name='email', required='', placeholder='Enter your email')
+            button.cta-form-btn(type='submit') Get started

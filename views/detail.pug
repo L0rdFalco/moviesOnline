@@ -1,76 +1,5 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Free Guy 2021
-    //
-      - favicon
-    link(rel='shortcut icon', href='./favicon.svg', type='image/svg+xml')
-    //
-      - custom css link
-    link(rel='stylesheet', href='./assets/css/style.css')
-    //
-      - google font link
-    link(rel='preconnect', href='https://fonts.googleapis.com')
-    link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
-    link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap', rel='stylesheet')
-  body(id='#top')
-    //
-      - #HEADER
-    header.header(data-header='')
-      .container
-        .overlay(data-overlay='')
-        a.logo(href='./index.html')
-          img(src='./assets/images/logo.svg', alt='Filmlane logo')
-        .header-actions
-          button.search-btn
-            ion-icon(name='search-outline')
-          .lang-wrapper
-            label(for='language')
-              ion-icon(name='globe-outline')
-            select#language(name='language')
-              option(value='en') EN
-              option(value='au') AU
-              option(value='ar') AR
-              option(value='tu') TU
-          button.btn.btn-primary Sign in
-        button.menu-open-btn(data-menu-open-btn='')
-          ion-icon(name='reorder-two')
-        nav.navbar(data-navbar='')
-          .navbar-top
-            a.logo(href='./index.html')
-              img(src='./assets/images/logo.svg', alt='Filmlane logo')
-            button.menu-close-btn(data-menu-close-btn='')
-              ion-icon(name='close-outline')
-          ul.navbar-list
-            li
-              a.navbar-link(href='./index.html') Home
-            li
-              a.navbar-link(href='#') Movie
-            li
-              a.navbar-link(href='#') Tv Show
-            li
-              a.navbar-link(href='#') Web Series
-            li
-              a.navbar-link(href='#') Pricing
-          ul.navbar-social-list
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-twitter')
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-facebook')
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-pinterest')
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-instagram')
-            li
-              a.navbar-social-link(href='#')
-                ion-icon(name='logo-youtube')
+extends base
+block content 
     main
       article
         //
@@ -78,7 +7,7 @@ html(lang='en')
         section.movie-detail
           .container
             figure.movie-detail-banner
-              img(src='./assets/images/movie-4.png', alt='Free guy movie poster')
+              img(src='/assets/images/movie-4.png', alt='Free guy movie poster')
               button.play-btn
                 ion-icon(name='play-circle-outline')
             .movie-detail-content
@@ -116,7 +45,7 @@ html(lang='en')
                 button.btn.btn-primary
                   ion-icon(name='play')
                   span Watch Now
-              a.download-btn(href='./assets/images/movie-4.png', download='')
+              a.download-btn(href='/assets/images/movie-4.png', download='')
                 span Download
                 ion-icon(name='download-outline')
         //
@@ -128,9 +57,9 @@ html(lang='en')
             ul.movies-list
               li
                 .movie-card
-                  a(href='./movie-details.html')
+                  a(href='/movie-details.html')
                     figure.card-banner
-                      img(src='./assets/images/series-1.png', alt='Moon Knight movie poster')
+                      img(src='/assets/images/series-1.png', alt='Moon Knight movie poster')
                   .title-wrapper
                     a(href='./movie-details.html')
                       h3.card-title Moon Knight
@@ -147,7 +76,7 @@ html(lang='en')
                 .movie-card
                   a(href='./movie-details.html')
                     figure.card-banner
-                      img(src='./assets/images/series-2.png', alt='Halo movie poster')
+                      img(src='/assets/images/series-2.png', alt='Halo movie poster')
                   .title-wrapper
                     a(href='./movie-details.html')
                       h3.card-title Halo
@@ -164,7 +93,7 @@ html(lang='en')
                 .movie-card
                   a(href='./movie-details.html')
                     figure.card-banner
-                      img(src='./assets/images/series-3.png', alt='Vikings: Valhalla movie poster')
+                      img(src='/assets/images/series-3.png', alt='Vikings: Valhalla movie poster')
                   .title-wrapper
                     a(href='./movie-details.html')
                       h3.card-title Vikings: Valhalla
@@ -181,7 +110,7 @@ html(lang='en')
                 .movie-card
                   a(href='./movie-details.html')
                     figure.card-banner
-                      img(src='./assets/images/series-4.png', alt='Money Heist movie poster')
+                      img(src='/assets/images/series-4.png', alt='Money Heist movie poster')
                   .title-wrapper
                     a(href='./movie-details.html')
                       h3.card-title Money Heist
@@ -194,64 +123,3 @@ html(lang='en')
                     .rating
                       ion-icon(name='star')
                       data 8.3
-    //
-      - #FOOTER
-    footer.footer
-      .footer-top
-        .container
-          .footer-brand-wrapper
-            a.logo(href='./index.html')
-              img(src='./assets/images/logo.svg', alt='Filmlane logo')
-            ul.footer-list
-              li
-                a.footer-link(href='./index.html') Home
-              li
-                a.footer-link(href='#') Movie
-              li
-                a.footer-link(href='#') TV Show
-              li
-                a.footer-link(href='#') Web Series
-              li
-                a.footer-link(href='#') Pricing
-          .divider
-          .quicklink-wrapper
-            ul.quicklink-list
-              li
-                a.quicklink-link(href='#') Faq
-              li
-                a.quicklink-link(href='#') Help center
-              li
-                a.quicklink-link(href='#') Terms of use
-              li
-                a.quicklink-link(href='#') Privacy
-            ul.social-list
-              li
-                a.social-link(href='#')
-                  ion-icon(name='logo-facebook')
-              li
-                a.social-link(href='#')
-                  ion-icon(name='logo-twitter')
-              li
-                a.social-link(href='#')
-                  ion-icon(name='logo-pinterest')
-              li
-                a.social-link(href='#')
-                  ion-icon(name='logo-linkedin')
-      .footer-bottom
-        .container
-          p.copyright
-            | &copy; 2022 
-            a(href='#') codewithsadee
-            | . All Rights Reserved
-          img.footer-bottom-img(src='./assets/images/footer-bottom-img.png', alt='Online banking companies logo')
-    //
-      - #GO TO TOP
-    a.go-top(href='#top', data-go-top='')
-      ion-icon(name='chevron-up')
-    //
-      - custom js link
-    script(src='./assets/js/script.js')
-    //
-      - ionicon link
-    script(type='module', src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js')
-    script(nomodule='', src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js')

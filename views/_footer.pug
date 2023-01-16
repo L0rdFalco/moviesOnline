@@ -1,0 +1,43 @@
+footer.footer
+    .footer-top
+    .container
+        ul.quicklink-list
+            li
+            a.quicklink-link(href='#') Faq
+            li
+            a.quicklink-link(href='#') Help center
+            li
+            a.quicklink-link(href='#') Terms of use
+            li
+            a.quicklink-link(href='#') Privacy
+        ul.social-list
+            li
+            a.social-link(href='#')
+                ion-icon(name='logo-facebook')
+            li
+            a.social-link(href='#')
+                ion-icon(name='logo-twitter')
+            li
+            a.social-link(href='#')
+                ion-icon(name='logo-pinterest')
+            li
+            a.social-link(href='#')
+                ion-icon(name='logo-linkedin')
+    .footer-bottom
+        .container
+            p.copyright
+            | &copy; 2022 
+            a(href='#')
+            | we aren't hosting these movies.
+            img.footer-bottom-img(src='/assets/images/footer-bottom-img.png', alt='Online banking companies logo')
+//
+    - #GO TO TOP
+a.go-top(href='#top', data-go-top='')
+    ion-icon(name='chevron-up')
+//
+    - custom js link
+script(src='./assets/js/script.js')
+//
+    - ionicon link
+script(type='module', src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js')
+script(nomodule='', src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js')

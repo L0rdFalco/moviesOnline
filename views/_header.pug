@@ -1,0 +1,52 @@
+header.header(data-header='')
+    .container
+        .overlay(data-overlay='')
+        a.logo(href='/')
+            img(src='/assets/images/logo.svg', alt='Filmlane logo')
+        .header-actions
+            button.search-btn
+                ion-icon(name='search-outline')
+            .lang-wrapper
+                label(for='language')
+                    ion-icon(name='globe-outline')
+                select#language(name='language')
+                    option(value='en') EN
+                    option(value='au') AU
+                    option(value='ar') AR
+                    option(value='tu') TU
+            button.btn.btn-primary Sign in
+        button.menu-open-btn(data-menu-open-btn='')
+            ion-icon(name='reorder-two')
+        nav.navbar(data-navbar='')
+            .navbar-top
+                a.logo(href='/')
+                    img(src='/assets/images/logo.svg', alt='Filmlane logo')
+                button.menu-close-btn(data-menu-close-btn='')
+                    ion-icon(name='close-outline')
+            ul.navbar-list
+                li
+                    a.navbar-link(href='/') Home
+                li
+                    a.navbar-link(href='#') Movie
+                li
+                    a.navbar-link(href='#') Tv Show
+                li
+                    a.navbar-link(href='#') Web Series
+                li
+                    a.navbar-link(href='#') Pricing
+            ul.navbar-social-list
+                li
+                    a.navbar-social-link(href='#')
+                        ion-icon(name='logo-twitter')
+                li
+                    a.navbar-social-link(href='#')
+                        ion-icon(name='logo-facebook')
+                li
+                    a.navbar-social-link(href='#')
+                        ion-icon(name='logo-pinterest')
+                li
+                    a.navbar-social-link(href='#')
+                        ion-icon(name='logo-instagram')
+                li
+                    a.navbar-social-link(href='#')
+                        ion-icon(name='logo-youtube')

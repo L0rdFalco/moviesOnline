@@ -18,6 +18,24 @@ exports.getDetailPage = (request, response, next) => {
 }
 
 
+exports.getGenrePage = (request, response, next) => {
+    try {
+        response.status(200).render("genre")
+
+    } catch (error) {
+        response.status(400).json({ status: "getGenrePage fail" })
+    }
+}
+
+exports.getTypePage = (request, response, next) => {
+    try {
+        response.status(200).render("type")
+
+    } catch (error) {
+        response.status(400).json({ status: "getTypePage fail" })
+    }
+}
+
 exports.getDashboard = (request, response, next) => {
     try {
         response.status(200).render("dashboard")
