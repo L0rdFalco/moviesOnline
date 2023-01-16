@@ -5,38 +5,17 @@ block content
       //
         - #HERO
       section.hero
-        .container
-          .hero-content
-            p.hero-subtitle Filmlane
-            h1.h1.hero-title
-              | Unlimited 
-              strong Movie
-              | , TVs Shows, &amp; More.
-            .meta-wrapper
-              .badge-wrapper
-                .badge.badge-fill PG 18
-                .badge.badge-outline HD
-              .ganre-wrapper
-                a(href='#') Romance,
-                a(href='#') Drama
-              .date-time
-                div
-                  ion-icon(name='calendar-outline')
-                  time(datetime='2022') 2022
-                div
-                  ion-icon(name='time-outline')
-                  time(datetime='PT128M') 128 min
-            button.btn.btn-primary
-              ion-icon(name='play')
-              span Watch now
+          .container
+            .sbcontainer
+              input#box.search__box(type='text', placeholder='Search anything and click enter')
+              i#icon.fas.fa-search.search__icon(onclick='toggleShow()')
       //
         - #UPCOMING
       section.upcoming
         .container
           .flex-wrapper
             .title-wrapper
-              p.section-subtitle Online Streaming
-              h2.h2.section-title Upcoming Movies
+              h2.h2.section-title Latest Movies
             ul.filter-list
               li
                 button.filter-btn Movies
@@ -151,8 +130,7 @@ block content
         - #TOP RATED
       section.top-rated
         .container
-          p.section-subtitle Online Streaming
-          h2.h2.section-title Top Rated Movies
+          h2.h2.section-title Latest documentaries
           ul.filter-list
             li
               button.filter-btn Movies
@@ -379,9 +357,9 @@ block content
       section.cta
         .container
           .title-wrapper
-            h2.cta-title Trial start first 30 days.
+            h2.cta-title stay updated on new or faster streaming sites.
             p.cta-text
-              | Enter your email to create or restart your membership.
+              | If this site is ever taken down, you'll get a like to a new site in your email.
           form.cta-form(action='')
             input.email-field(type='email', name='email', required='', placeholder='Enter your email')
-            button.cta-form-btn(type='submit') Get started
+            button.cta-form-btn(type='submit') submit
