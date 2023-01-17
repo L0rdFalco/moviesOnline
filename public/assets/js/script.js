@@ -51,6 +51,8 @@ window.addEventListener("scroll", function () {
 
 });
 
+
+
 const el = document.getElementById("box");
 
 el.addEventListener("keyup", function (e) {
@@ -63,5 +65,3 @@ el.addEventListener("keyup", function (e) {
 
 
 })
-function toggleShow() {
-}

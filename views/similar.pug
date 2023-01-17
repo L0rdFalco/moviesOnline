@@ -1,0 +1,35 @@
+extends base
+block content 
+  main
+    article
+      section.upcoming
+        .container
+          .flex-wrapper
+            .title-wrapper
+              h2.h2.section-title list from this genre
+            ul.filter-list
+              li
+                button.filter-btn this year
+              li
+                button.filter-btn last year
+              li
+                button.filter-btn all others
+          ul.movies-list
+            each movie in data
+              li
+                .movie-card
+                  a(href=`/detail/${movie.id}`)
+                    figure.card-banner
+                      img(src=`https://image.tmdb.org/t/p/w500${movie.poster_path}`, alt=`${movie.title} movie poster`)
+                  .title-wrapper
+                    a(href=`/detail/${movie.id}`)
+                      h3.card-title= movie.original_title
+                    data= movie.release_date.split("-")[0]
+                  .card-meta
+                    .badge.badge-outline HD
+                    .duration
+                      ion-icon(name='time-outline')
+                      time(datetime='PT137M') 137 min
+                    .rating
+                      ion-icon(name='star')
+                      data= data.vote_average
