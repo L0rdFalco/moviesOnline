@@ -1,96 +1,49 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    title Google
-    meta(name='description', content='The HTML5 Herald')
-    meta(name='author', content='SitePoint')
-    link(rel='stylesheet', href='/assets/css/results.css?v=1.0')
-  body
-    // header
-    header
-      div
-        img(src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png')
-        .search-box
-          form
-            input.search-prompt(type='search', name='search', value='build this page')
-        .nav-right
-          img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMG6DsqfFZ-Mlo3ULMOs6CqBqBuSLUT5_OZv82wlZVs_LnHFGgZg', alt='Googleapps', height='16px', width='16px')
-          a(href='index.html')
-            button Sign in
-      // top nav
-      nav
-        a(href='#home') All
-        a(href='#news') News
-        a(href='#contact') Videos
-        a(href='#about') Map
-        a(href='#about') Shopping
-        a(href='#about') More
-        a(href='#about') Settings
-        a(href='#about') Tools
-      hr
-      // top nav end
-    // head end
-    main
-      // search results
-      p.results-returned About 151,000,000 results (0.46 seconds)
-      ul
-        li
-          h2.result-link
-            a(href='Google.com') Google Homepage
-          p.green-link https://proto-dylan.github.io/google-homepage/
-          span.down-arrow
-          p
-            | March 20, 2019, having never done any web developement work before, Dylan Maloney set out on a great adventure of learning and enrichment. From analog to the digital realm he...
-        li
-          h2.result-link
-            a(href='Google.com') Google Homepage
-          p.green-link https://proto-dylan.github.io/google-homepage/
-          span.down-arrow
-          p
-            | March 20, 2019, having never done any web developement work before, Dylan Maloney set out on a great adventure of learning and enrichment. From analog to the digital realm he...
-        li
-          h2.result-link
-            a.result-link(href='Google.com') Google Homepage
-          p.green-link https://proto-dylan.github.io/google-homepage/
-          span.down-arrow
-          p
-            | March 20, 2019, having never done any web developement work before, Dylan Maloney set out on a great adventure of learning and enrichment. From analog to the digital realm he...
-        li
-          h2.result-link
-            a(href='Google.com') Google Homepage
-          p.green-link https://proto-dylan.github.io/google-homepage/
-          span.down-arrow
-          p
-            | March 20, 2019, having never done any web developement work before, Dylan Maloney set out on a great adventure of learning and enrichment. From analog to the digital realm he...
-        li
-          h2.result-link
-            a(href='https://www.imbeginner.in/') gupta
-          p.green-link https://proto-dylan.github.io/google-homepage/
-          span.down-arrow
-          p
-            | March 20, 2019, having never done any web developement work before, Dylan Maloney set out on a great adventure of learning and enrichment. From analog to the digital realm he...
-        li
-          h2.result-link
-            a(href='Google.com') Google Homepage
-          p.green-link https://proto-dylan.github.io/google-homepage/
-          span.down-arrow
-          p
-            | March 20, 2019, having never done any web developement work before, Dylan Maloney set out on a great adventure of learning and enrichment. From analog to the digital realm he...
-      // end of search results
-      // search suggestions
-      #related
-        h3 Searches related to build this webpage
-        ul
+extends base
+block content 
+  main
+    article
+      section.upcoming
+        .container
+          .flex-wrapper
+            .title-wrapper
+              h2.h2.section-title list from this genre
+            ul.filter-list
+              li
+                button.filter-btn this year
+              li
+                button.filter-btn last year
+              li
+                button.filter-btn all others
+          ul.movies-list
+            each movie in data
+              li
+                .movie-card
+                  a(href=`/detail/${movie.id}`)
+                    figure.card-banner
+                      img(src=`https://image.tmdb.org/t/p/w500${movie.poster_path}`, alt=`${movie.title} movie poster`)
+                  .title-wrapper
+                    a(href=`/detail/${movie.id}`)
+                      h3.card-title= movie.original_title
+                    //- data= movie.release_date.split("-")[0]
+                  .card-meta
+                    .badge.badge-outline HD
+                    .duration
+                      ion-icon(name='time-outline')
+                      time(datetime='PT137M') 137 min
+                    .rating
+                      ion-icon(name='star')
+                      data= data.vote_average
+    .page-header 
+      -let x = 0
+      if paginate
+        ul#pagination
           li
-            a(href='#') new website everyday
+            a(href='#') &laquo;
+            while x < num 
+              -x++
+              li
+                a(href=`/type/${typeVal}?page=${page}`)= page 
+              -page++  
+
           li
-            a(href='#') new everyday
-          li
-            a(href='#') website everyday
-          li
-            a(href='#') the more you know
-          li
-            a(href='#') more you know
-          li
-            a(href='#') the know
+            a(href='#') &raquo;

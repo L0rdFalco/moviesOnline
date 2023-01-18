@@ -55,12 +55,17 @@ window.addEventListener("scroll", function () {
 
 const el = document.getElementById("box");
 
-el.addEventListener("keyup", function (e) {
+if (el) el.addEventListener("keyup", async function (e) {
   e.preventDefault()
   if (e.key === "Enter") {
     console.log(el.value.trim());
 
-    //hit api and return search results
+    const searchText = el.value.trim()
+
+    if (!searchText.length) return
+
+    window.open(`/results/${searchText}`, '_self').focus();
+
   }
 
 
