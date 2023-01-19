@@ -7,7 +7,9 @@ block content
         section.movie-detail
           .container
             figure.movie-detail-banner
-              img(src=`https://image.tmdb.org/t/p/w500${data.poster_path}`, alt='Free guy movie poster')
+              -let path =data.poster_path?`https://image.tmdb.org/t/p/w500/${data.poster_path}`:`https://image.tmdb.org/t/p/w500/bwrDzLHjU1g5Us1eCjmnY8IQBRf.jpg`
+       
+              img(src=`https://image.tmdb.org/t/p/w500${path}`, alt=`${data.name} movie poster`)
               button.play-btn
                 ion-icon(name='play-circle-outline')
             .movie-detail-content
@@ -25,7 +27,7 @@ block content
                 .date-time
                   div
                     ion-icon(name='calendar-outline')
-                    data= data.release_date.split("-")[0]
+                    //- data= data.release_date.split("-")[0]
                   div
                     ion-icon(name='time-outline')
                     time(datetime='PT115M') 115 min

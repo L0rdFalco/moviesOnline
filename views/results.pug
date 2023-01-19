@@ -6,7 +6,7 @@ block content
         .container
           .flex-wrapper
             .title-wrapper
-              h2.h2.section-title list from this genre
+              h2.h2.section-title Do or Do Not, There Is No Try
             ul.filter-list
               li
                 button.filter-btn this year
@@ -15,16 +15,18 @@ block content
               li
                 button.filter-btn all others
           ul.movies-list
-            each movie in data
+            each story in data.info
               li
                 .movie-card
-                  a(href=`/detail/${movie.id}`)
+                  a(href=`/detail/${story.id}?type=${data.type}`)
                     figure.card-banner
-                      img(src=`https://image.tmdb.org/t/p/w500${movie.poster_path}`, alt=`${movie.title} movie poster`)
+                     -let path =story.poster_path?`https://image.tmdb.org/t/p/w500/${story.poster_path}`:`https://image.tmdb.org/t/p/w500/bwrDzLHjU1g5Us1eCjmnY8IQBRf.jpg`
+                      img(src=`${path}`, alt=`${story.title} movie poster`)
                   .title-wrapper
-                    a(href=`/detail/${movie.id}`)
-                      h3.card-title= movie.original_title
-                    data= movie.release_date.split("-")[0]
+                    a(href=`/detail/${story.id}`)
+                      h3.card-title= story.original_title? story.original_title: story.name
+                      //- h3.card-title= story.name
+                    //- data= movie.release_date.split("-")[0]
                   .card-meta
                     .badge.badge-outline HD
                     .duration

@@ -1,6 +1,7 @@
 const api = require("../utils/api.js")
 const https = require("https")
 
+
 exports.getHomePage = async (request, response, next) => {
     try {
 
@@ -11,25 +12,26 @@ exports.getHomePage = async (request, response, next) => {
          * search
 
         */
-
-        let npMoviesInfo = await api.apiCall("/movie/now_playing")
-        let topratedMovieInfo = await api.apiCall("/movie/top_rated")
-        let popularTvInfo = await api.apiCall("/tv/popular")
-        let genreListInfo = await api.apiCall("/genre/movie/list")
-
-        npMoviesInfo = npMoviesInfo.data
-        topratedMovieInfo = topratedMovieInfo.data
-        popularTvInfo = popularTvInfo.data
-        genreListInfo = genreListInfo.data
+        let params = {
+            api_key: process.env.movieDB_API_KEY,
+            sort_by: "release_date.desc",
+            page: request.query.page
+        }
+        const npMoviesInfo = await api.apiCall("/movie/now_playing", params)
+        const topratedMovieInfo = await api.apiCall("/movie/top_rated", params)
+        const popularTvInfo = await api.apiCall("/movie/popular", params)
+        const genreListInfo = await api.apiCall("/genre/movie/list", params)
 
 
         response.status(200).render("home",
             {
                 data: {
-                    npMovies: npMoviesInfo.results,
-                    trMovies: topratedMovieInfo.results,
-                    tvShows: popularTvInfo.results,
-                    genreList: genreListInfo.genres
+                    npMovies: { info: npMoviesInfo.data.results, type: "movie" },
+                    trMovies: { info: topratedMovieInfo.data.results, type: "movie" },
+                    tvShows: { info: popularTvInfo.data.results, type: "movie" },
+                    genreList: { info: genreListInfo.data.genres, type: "movie" },
+
+
                 }
             })
 
@@ -41,8 +43,12 @@ exports.getHomePage = async (request, response, next) => {
 
 exports.getDetailPage = async (request, response, next) => {
     try {
+        console.log(request.params);
+        let params = {
+            api_key: process.env.movieDB_API_KEY,
 
-        const movieDetails = await api.apiCall(`/movie/${request.params.movieid}`)
+        }
+        const movieDetails = await api.apiCall(`/${request.query.type}/${request.params.movieid}`, params)
 
 
         console.log(movieDetails);
@@ -55,22 +61,88 @@ exports.getDetailPage = async (request, response, next) => {
     }
 }
 
+exports.getTypePage = async (request, response, next) => {
+    try {
+        console.log(request.params);
+        console.log(request.query);
+        /**
+         * https://api.themoviedb.org/3/discover/movie?api_key=44898f033c1064ee9e60d512e396cfcd&page=443&sort_by=release_date.desc
+         * https://api.themoviedb.org/3/discover/movie?api_key=44898f033c1064ee9e60d512e396cfcd&page=443&sort_by=release_date.desc
+         * https://api.themoviedb.org/3/movie/top_rated?api_key=44898f033c1064ee9e60d512e396cfcd&page=91
+         * https://api.themoviedb.org/3/movie/popular?api_key=44898f033c1064ee9e60d512e396cfcd&page=499
+         *  */
+
+        let params = {
+            api_key: process.env.movieDB_API_KEY,
+            sort_by: "release_date.desc",
+            page: request.query.page
+        }
+        /*
+        https://api.themoviedb.org/3/discover/movie?
+        api_key=44898f033c1064ee9e60d512e396cfcd
+        &language=en-US
+        &sort_by=popularity.desc
+        &include_adult=false
+        &include_video=false
+        &page=2
+        &with_watch_monetization_types=flatrate
+        
+        */
+        console.log(params);
+
+
+        let value = null
+
+        if (request.params.typename === "movies") {
+            value = "/movie/popular/"
+
+        }
+        else if (request.params.typename === "tv-shows") {
+            value = "/tv/popular/"
+
+        }
+
+        const mediaDetails = await api.apiCall(value, params)
+        // console.log(mediaDetails.data.results);
+        const type = request.params.typename === "movies" ? "movie" : "tv"
+
+        console.log("the type is:-----------------?", type);
+
+        response.status(200).render("results",
+            {
+                paginate: true,
+                page: request.query.page,
+                num: 10,
+                typeVal: request.params.typename,
+                type: type,
+                data: { info: mediaDetails.data.results, type: type }
+
+            })
+
+    } catch (error) {
+        // console.log(error);
+        response.status(400).json({ status: "getTypePage fail" })
+    }
+}
+
 exports.getGenrePage = async (request, response, next) => {
     try {
         console.log(request.params);
 
         let params = {
-            pageNum: request.params.pagenum
+            api_key: process.env.movieDB_API_KEY,
+            sort_by: "release_date.desc",
+            page: request.query.page
         }
 
-        const genreList = await api.apiCall(`/discover/movie/`, request.params.genrename)
+        const genreList = await api.apiCall(`/discover/movie/`, params)
 
         console.log(genreList.data);
 
 
         response.status(200).render("results", {
             data: genreList.data.results,
-            paginate: false
+            paginate: true
         })
 
     } catch (error) {
@@ -103,48 +175,6 @@ exports.getSimilarPage = async (request, response, next) => {
     }
 }
 
-exports.getTypePage = async (request, response, next) => {
-    try {
-        console.log(request.params);
-        console.log(request.query);
-
-        let value = null
-
-        if (request.params.typename === "movies") {
-            value = "/movie/popular"
-
-        }
-        else if (request.params.typename === "tv-shows") {
-            value = "/tv/popular"
-
-        }
-
-        /**
-         * https://api.themoviedb.org/3/discover/movie?api_key=44898f033c1064ee9e60d512e396cfcd&page=443&sort_by=release_date.desc
-         * https://api.themoviedb.org/3/movie/top_rated?api_key=44898f033c1064ee9e60d512e396cfcd&page=91
-         * https://api.themoviedb.org/3/movie/popular?api_key=44898f033c1064ee9e60d512e396cfcd&page=499
-         *  */
-
-        console.log(value);
-        const mediaDetails = await api.apiCall(value)
-
-        // console.log(mediaDetails);
-
-        response.status(200).render("results",
-            {
-                paginate: true,
-                page: request.query.page,
-                num: 10,
-                typeVal: request.params.typename,
-                data: mediaDetails.data.results
-
-            })
-
-    } catch (error) {
-        // console.log(error);
-        response.status(400).json({ status: "getTypePage fail" })
-    }
-}
 
 exports.getSearchResultsPage = (request, response, next) => {
     try {

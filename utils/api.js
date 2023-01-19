@@ -1,9 +1,23 @@
 const axios = require("axios")
 
-exports.apiCall = async function (identifier, ...params) {
-    const paramStr = params.join("&")
+
+exports.apiCall = async function (route, params) {
+    let queryParams = ""
+    let currentUrl = ""
+    if (params) {
+        Object.keys(params).forEach(key => {
+            if (params[key]) queryParams += `${key}=${params[key]}&`
+
+        })
+        currentUrl = `${process.env.movieDB_BASE_URL}${route}?${queryParams}`
+    }
+
+    else {
+        currentUrl = `${process.env.movieDB_BASE_URL}${route}`
+    }
+
     const res = await axios({
-        url: `${process.env.movieDB_BASE_URL}${identifier}?api_key=${process.env.movieDB_API_KEY}&${params}`,
+        url: currentUrl,
         method: "GET"
     })
 

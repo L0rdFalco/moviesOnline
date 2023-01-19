@@ -15,18 +15,18 @@ block content
           .flex-wrapper
             .title-wrapper
               h2.h2.section-title Latest Movies
-            ul.filter-list
-              li
-                button.filter-btn Movies
-              li
-                button.filter-btn TV Shows
-              li
-                button.filter-btn Anime
+            //- ul.filter-list
+            //-   li
+            //-     button.filter-btn Movies
+            //-   li
+            //-     button.filter-btn TV Shows
+            //-   li
+            //-     button.filter-btn Anime
           ul.movies-list
-            each movieObj in data.npMovies
+            each movieObj in data.npMovies.info
               li
                 .movie-card
-                  a(href=`/detail/${movieObj.id}`)
+                  a(href=`/detail/${movieObj.id}?type=${data.npMovies.type}`)
                     figure.card-banner
                       img(src=`https://image.tmdb.org/t/p/w500${movieObj.poster_path}`, alt=`${movieObj.title} movie poster`)
                   .title-wrapper
@@ -81,19 +81,23 @@ block content
           ul.filter-list
             each genre in data.genreList
               li
-                button(onclick=`window.location.href='${"/genre/"}${genre.name}'`).filter-btn= genre.name
+                button(onclick=`window.location.href='${"/genre/"}${genre.name}?page=10'`).filter-btn= genre.name
 
           ul.movies-list
-            each show in data.tvShows
+            each show in data.tvShows.info
               li
                 .movie-card
-                  a(href=`/detail/${show.id}`)
+                  a(href=`/detail/${show.id}?type=${data.tvShows.type}`)
                     figure.card-banner
-                      img(src=`https://image.tmdb.org/t/p/w500${show.poster_path}`, alt=`${show.title} poster`)
+                    
+                      if show.poster_path
+                        img(src=`https://image.tmdb.org/t/p/w500${show.poster_path}`, alt=`${show.title} poster`)
+                      else 
+                        img(src=`https://image.tmdb.org/t/p/w500/5iODvV2VeTAGfW679PvCDQeqO98.jpg`, alt=`${show.title} poster`)
                   .title-wrapper
                     a(href=`/detail/${show.id}`)
-                      h3.card-title= show.title
-                    data= show.first_air_date.split("-")[0]
+                      h3.card-title= show.name
+                    //- data= show.first_air_date.split("-")[0]
                   .card-meta
                     .badge.badge-outline HD
                     .duration
@@ -108,10 +112,10 @@ block content
           p.section-subtitle top rated movies
           h2.h2.section-title movies of all time
           ul.movies-list
-            each movieObj in data.trMovies
+            each movieObj in data.trMovies.info
               li
                 .movie-card
-                  a(href=`/detail/${movieObj.id}`)
+                  a(href=`/detail/${movieObj.id}?type=${data.trMovies.type}`)
                     figure.card-banner
                       img(src=`https://image.tmdb.org/t/p/w500${movieObj.poster_path}`, alt=`${movieObj.title} movie poster`)
                   .title-wrapper
