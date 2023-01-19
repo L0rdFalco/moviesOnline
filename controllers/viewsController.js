@@ -1,6 +1,9 @@
 const api = require("../utils/api.js")
 const https = require("https")
-
+const nodeparser = require("node-html-parser")
+const fs = require('fs');
+const cheerio = require('cheerio');
+const got = require('got')
 
 exports.getHomePage = async (request, response, next) => {
     try {
@@ -167,34 +170,43 @@ exports.getSimilarPage = async (request, response, next) => {
 
 
 exports.getSearchResultsPage = (request, response, next) => {
+    let storyInfo = []
     try {
 
-        console.log(request.params);
-        console.log(request.query);
+        let searchVal = request.params.searchvalue
+        console.log(searchVal);
+        searchVal = searchVal.replace(/\s+/g, '-').toLowerCase();
+        const url = `https://myflixer.pw/search/${searchVal}`
 
-        const searchVal = request.params.searchvalue
+        got(url).then(res => {
+            const $ = cheerio.load(res.body);
+            const myElements = $('.flw-item')
 
-        // https.get(`https://myflixer.pw/search/${searchVal}`, function (res) {
-        //     console.log(res.statusCode);
-        //     res.setEncoding('utf8');
-        //     res.on('data', function (data) {
-        //         console.log(data);
-        //     });
-        // }).on('error', function (err) {
-        //     console.log(err);
-        // });
+            myElements.each((i, elm) => {
+                const posterVal = $(elm).find("img").attr('data-src');
+                const titleVal = $(elm).find("img").attr('title');
+                const linkVal = $(elm).find("a").attr('href');
 
+                storyInfo.push({ poster: posterVal, title: titleVal, link: linkVal })
 
+            })
 
-        response.status(200).render("results",
-            {
-                data: {
-                    paginate: false,
-                    movieData: {}
+            response.status(200).render("search-results",
+                {
+                    data: {
+                        paginate: false,
+                        info: storyInfo
 
+                    }
                 }
-            }
-        )
+            )
+
+
+        }).catch(err => {
+            console.log(err);
+
+        });
+
 
     } catch (error) {
         console.log(error);

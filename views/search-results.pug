@@ -1,0 +1,34 @@
+extends base
+block content 
+  main
+    article
+      section.upcoming
+        .container
+          .flex-wrapper
+            .title-wrapper
+              h2.h2.section-title Do or Do Not, There Is No Try
+            ul.filter-list
+              li
+                button.filter-btn this year
+              li
+                button.filter-btn last year
+              li
+                button.filter-btn all others
+          ul.movies-list
+            each story in data.info
+              li
+                .movie-card
+                  a(href=`https://myflixer.pw/${story.link}`)
+                    figure.card-banner
+                      img(src= story.poster, alt=`${story.title} movie poster`)
+                  .title-wrapper
+                    a(href=`https://myflixer.pw/${story.link}`)
+                      h3.card-title= story.title
+                  .card-meta
+                    .badge.badge-outline HD
+                    .duration
+                      ion-icon(name='time-outline')
+                      time(datetime='PT137M') fast stream version
+                    .rating
+                      ion-icon(name='star')
+                      data= data.vote_average
