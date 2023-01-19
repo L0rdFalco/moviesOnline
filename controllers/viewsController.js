@@ -1,7 +1,4 @@
 const api = require("../utils/api.js")
-const https = require("https")
-const nodeparser = require("node-html-parser")
-const fs = require('fs');
 const cheerio = require('cheerio');
 const got = require('got')
 

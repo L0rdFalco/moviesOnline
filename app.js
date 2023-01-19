@@ -2,6 +2,7 @@ const express = require("express")
 const path = require("path")
 const morgan = require("morgan")
 const usersRouter = require("./routers/usersRouter.js")
+const storyRouter = require("./routers/storyRouter.js")
 const viewsRouter = require("./routers/viewsRouter.js")
 
 
@@ -19,5 +20,6 @@ if (process.env.NODE_ENV === "development") app.use(morgan("dev"))
 
 app.use("/", viewsRouter)
 app.use("/users/", usersRouter)
+app.use("/stories/", storyRouter)
 
 module.exports = app

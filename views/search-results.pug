@@ -18,11 +18,11 @@ block content
             each story in data.info
               li
                 .movie-card
-                  a(href=`https://myflixer.pw/${story.link}`)
+                  a(href=`https://myflixer.pw${story.link}`)
                     figure.card-banner
                       img(src= story.poster, alt=`${story.title} movie poster`)
                   .title-wrapper
-                    a(href=`https://myflixer.pw/${story.link}`)
+                    a(href=`https://myflixer.pw${story.link}`)
                       h3.card-title= story.title
                   .card-meta
                     .badge.badge-outline HD

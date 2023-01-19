@@ -10,11 +10,11 @@ block content
               -let path =data.poster_path?`https://image.tmdb.org/t/p/w500/${data.poster_path}`:`https://image.tmdb.org/t/p/w500/bwrDzLHjU1g5Us1eCjmnY8IQBRf.jpg`
        
               img(src=`https://image.tmdb.org/t/p/w500${path}`, alt=`${data.name} movie poster`)
-              button.play-btn
+              button#playBtn.play-btn
                 ion-icon(name='play-circle-outline')
             .movie-detail-content
               p.detail-subtitle Fast streaming version
-              h1.h1.detail-title
+              h1#titleDisplay.h1.detail-title
                 strong= data.title
                 strong= data.name
               .meta-wrapper
@@ -40,7 +40,7 @@ block content
                 .title-wrapper
                   p.title Prime Video
                   p.text Streaming Channels
-                button.btn.btn-primary
+                button#watchBtn.btn.btn-primary
                   ion-icon(name='play')
                   span Watch Now
               a.download-btn(href='https://avantofiles.com/1316137', download='')
@@ -52,7 +52,7 @@ block content
           .container
             //- p.section-subtitle Best TV Series
             h2.h2.section-title Choose your most preferred server
-            ul.movies-list
+            ul#movieListParent.movies-list
               li
                 .movie-card
                   a(href='/movie-details.html')

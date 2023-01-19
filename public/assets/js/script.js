@@ -52,7 +52,7 @@ window.addEventListener("scroll", function () {
 });
 
 
-
+// search on home page
 const el = document.getElementById("box");
 
 if (el) el.addEventListener("keyup", async function (e) {
@@ -68,5 +68,80 @@ if (el) el.addEventListener("keyup", async function (e) {
 
   }
 
-
 })
+
+
+console.log("called");
+const ids = ["playBtn", "watchBtn"]
+
+for (const id of ids) {
+  console.log("id: ", id);
+  let titleEl = document.getElementById("titleDisplay")
+  const currEL = document.getElementById(id);
+
+
+  if (currEL) {
+
+    currEL.addEventListener("click", async function (e) {
+
+      if (titleEl) {
+        let titleVal = titleEl.textContent
+        titleVal = titleVal.replace(/\s+/g, '-').toLowerCase();
+
+        const res = await fetch(`/stories/${titleVal}`)
+
+        const res2 = await res.json()
+
+        if (res2.status !== "success") return
+
+
+        const parentEL = document.getElementById("movieListParent")
+
+        let html = ""
+        parentEL.innerHTML = ""
+
+        for (const storyData of res2.data) {
+          html += `
+          <li>
+            <div class="movie-card">
+                <a onclick="window.open(this.href,'_blank');return false;" href=https://myflixer.pw${storyData.link}>
+                  <figure class="card-banner"><img src=${storyData.poster} alt="${storyData.title} movie poster"></figure>
+                </a>
+                <div class="title-wrapper">
+                  <a onclick="window.open(this.href,'_blank');return false;" href=https://myflixer.pw${storyData.link}>
+                      <h3 class="card-title">${storyData.title}</h3>
+                  </a>
+                  <time datetime="2022">2022</time>
+                </div>
+                <div class="card-meta">
+                  <div class="badge badge-outline">HD</div>
+                  <div class="duration">
+                      <ion-icon name="time-outline" role="img" class="md hydrated" aria-label="time outline"></ion-icon>
+                      <time datetime="PT47M">153 min</time>
+                  </div>
+                  <div class="rating">
+                      <ion-icon name="star" role="img" class="md hydrated" aria-label="star"></ion-icon>
+                      <data>8.6</data>
+                  </div>
+                </div>
+            </div>
+          </li>
+  
+        `
+
+        }
+
+        parentEL.insertAdjacentHTML("beforeend", html)
+
+
+
+
+      }
+
+
+    })
+
+  }
+
+}
+
