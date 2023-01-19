@@ -154,19 +154,9 @@ exports.getGenrePage = async (request, response, next) => {
 
 exports.getSimilarPage = async (request, response, next) => {
     try {
-        console.log(request.params);
-        console.log(request.query);
-
-        const similiarDetails = await api.apiCall(`/movie/${request.params.movieid}/similar`)
-
-        console.log(similiarDetails.data.results);
 
 
-        response.status(200).render("results",
-            {
-                data: similiarDetails.data.results,
-                paginate: false
-            })
+        response.status(200).render("error")
 
     } catch (error) {
 
@@ -227,6 +217,18 @@ exports.getAuthWall = (request, response, next) => {
 
     } catch (error) {
         response.status(400).json({ status: "getAuthWall fail" })
+    }
+}
+exports.getPricingPage = async (request, response, next) => {
+    try {
+
+
+        response.status(200).render("error")
+
+    } catch (error) {
+
+        console.log(error);
+        response.status(400).json({ status: "getSimilarPage fail" })
     }
 }
 

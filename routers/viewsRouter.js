@@ -12,6 +12,7 @@ viewsRouter.route("/type/:typename").get(viewsController.getTypePage)// movie, t
 viewsRouter.route("/results/:searchvalue").get(viewsController.getSearchResultsPage)// movie, tv show or web series
 viewsRouter.route("/auth").get(viewsController.getAuthWall)
 viewsRouter.route("/dashboard").get(viewsController.getDashboard)
+viewsRouter.route("/pricing").get(viewsController.getPricingPage)
 
 
 module.exports = viewsRouter
