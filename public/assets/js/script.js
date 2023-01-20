@@ -132,9 +132,6 @@ for (const id of ids) {
 
         parentEL.insertAdjacentHTML("beforeend", html)
 
-
-
-
       }
 
 

@@ -1620,7 +1620,7 @@ line-height: 2;
 } */
 
 .sbcontainer {
-width: 80%;
+width: 30%;
 height: auto;
 background-color: #000000;
 /*   margin: 20vh auto; */
@@ -1631,12 +1631,12 @@ padding: 10px;
 
 .search__box {
 float: left;
-width: 85%;
+width: 100%;
 height: 4rem;
 /*   display: inline; */
 background: #ffffff;
 color: #000000;
-font-size: 1.5rem;
+font-size: 1.1rem;
 border-radius: 2rem;
 outline: none;
 border: none;
