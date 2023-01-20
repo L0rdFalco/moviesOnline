@@ -154,30 +154,37 @@ document.addEventListener("click", function (e) {
   }
 });
 
+const nameEl = document.getElementById("name")
+const emailEl = document.getElementById("email")
 const submitBtn = document.getElementById("submitBtn")
+
 
 if (submitBtn) submitBtn.addEventListener("click", async function (e) {
 
   e.preventDefault()
 
-  console.log("hit submit api");
+  const nameVal = nameEl.value.trim()
+  const emailVal = emailEl.value.trim()
 
-  const res1 = await fetch("/users/register", {
-    method: "POST",
-    headers: { 'Content-type': "application/json" },
-    body: JSON.stringify({
-      name: "x",
-      email: "x@x.com"
+  if (nameVal && emailVal) {
+
+    const res1 = await fetch("/users/register", {
+      method: "POST",
+      headers: { 'Content-type': "application/json" },
+      body: JSON.stringify({
+        name: "x",
+        email: "x@x.com"
+      })
     })
-  })
 
-  const res2 = await res1.json()
+    const res2 = await res1.json()
 
-  if (res2.status.includes("success")) {
-    document.getElementById("succesText").innerText = "you have been registered!"
+    if (res2.status.includes("success")) {
+      document.getElementById("succesText").innerText = "you have been registered!"
 
+    }
   }
 
-  console.log(res2);
+
 
 })
