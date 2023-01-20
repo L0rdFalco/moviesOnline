@@ -10,6 +10,20 @@ block content
               input#box.search__box(type='text', placeholder='Search for any movie and click enter')
               i#icon.fas.fa-search.search__icon
 
+      section.cta
+        .container
+          .title-wrapper
+            h2.cta-title stay updated on new or faster streaming sites.
+            p#succesText.cta-text
+            p.cta-text
+              | If this site is ever taken down, you'll get a link to a new site in your email.
+          form.cta-form(action='')
+            input.email-field(type='text', name='name', required='', placeholder='Enter your name')
+            br
+            input.email-field(type='email', name='email', required='', placeholder='Enter your email')
+            
+            button#submitBtn.cta-form-btn(type='submit') submit
+
       section.top-rated
         .container
           .flex-wrapper
@@ -132,12 +146,3 @@ block content
                       data= movieObj.vote_average
       //
         - #CTA
-      section.cta
-        .container
-          .title-wrapper
-            h2.cta-title stay updated on new or faster streaming sites.
-            p.cta-text
-              | If this site is ever taken down, you'll get a like to a new site in your email.
-          form.cta-form(action='')
-            input.email-field(type='email', name='email', required='', placeholder='Enter your email')
-            button.cta-form-btn(type='submit') submit

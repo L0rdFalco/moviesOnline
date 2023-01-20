@@ -1634,8 +1634,8 @@ float: left;
 width: 85%;
 height: 4rem;
 /*   display: inline; */
-background: #000000;
-color: #ffffff;
+background: #ffffff;
+color: #000000;
 font-size: 1.5rem;
 border-radius: 2rem;
 outline: none;
@@ -1644,13 +1644,14 @@ position: relative;
 opacity: 1;
 transition: all .75s ease-in;
 cursor: pointer;
+padding-left: 10px;
 /*   border: 2px solid tomato; */
 /*   margin-top: 5px; */
 }
 
-.search__box:focus, .search__box:hover {
+/* .search__box:focus, .search__box:hover {
 background-color: #000000;
-}
+} */
 
 .search__icon {
 box-sizing: border-box;

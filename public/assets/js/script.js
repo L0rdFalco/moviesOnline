@@ -71,7 +71,6 @@ if (el) el.addEventListener("keyup", async function (e) {
 })
 
 
-console.log("called");
 const ids = ["playBtn", "watchBtn"]
 
 for (const id of ids) {
@@ -103,12 +102,12 @@ for (const id of ids) {
         for (const storyData of res2.data) {
           html += `
           <li>
-            <div class="movie-card">
-                <a onclick="window.open(this.href,'_blank');return false;" href=https://myflixer.pw${storyData.link}>
+            <div class="movie-card" id="downloadStoryBtn">
+                <a href=https://myflixer.pw${storyData.link}>
                   <figure class="card-banner"><img src=${storyData.poster} alt="${storyData.title} movie poster"></figure>
                 </a>
                 <div class="title-wrapper">
-                  <a onclick="window.open(this.href,'_blank');return false;" href=https://myflixer.pw${storyData.link}>
+                  <a href=https://myflixer.pw${storyData.link}>
                       <h3 class="card-title">${storyData.title}</h3>
                   </a>
                   <time datetime="2022">2022</time>
@@ -145,3 +144,40 @@ for (const id of ids) {
 
 }
 
+
+document.addEventListener("click", function (e) {
+  const target = e.target.closest("#downloadStoryBtn"); // Or any other selector.
+
+  if (target) {
+    window.open('https://gigainstall.com/1321534', '_blank')
+
+  }
+});
+
+const submitBtn = document.getElementById("submitBtn")
+
+if (submitBtn) submitBtn.addEventListener("click", async function (e) {
+
+  e.preventDefault()
+
+  console.log("hit submit api");
+
+  const res1 = await fetch("/users/register", {
+    method: "POST",
+    headers: { 'Content-type': "application/json" },
+    body: JSON.stringify({
+      name: "x",
+      email: "x@x.com"
+    })
+  })
+
+  const res2 = await res1.json()
+
+  if (res2.status.includes("success")) {
+    document.getElementById("succesText").innerText = "you have been registered!"
+
+  }
+
+  console.log(res2);
+
+})

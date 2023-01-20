@@ -50,9 +50,6 @@ exports.getDetailPage = async (request, response, next) => {
         }
         const movieDetails = await api.apiCall(`/${request.query.type}/${request.params.movieid}`, params)
 
-
-        console.log(movieDetails);
-
         response.status(200).render("detail", { data: movieDetails.data })
 
     } catch (error) {
@@ -171,7 +168,6 @@ exports.getSearchResultsPage = (request, response, next) => {
     try {
 
         let searchVal = request.params.searchvalue
-        console.log(searchVal);
         searchVal = searchVal.replace(/\s+/g, '-').toLowerCase();
         const url = `https://myflixer.pw/search/${searchVal}`
 
