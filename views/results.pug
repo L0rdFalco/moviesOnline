@@ -27,8 +27,10 @@ block content
                       h3.card-title= story.original_title? story.original_title: story.name
                       //- h3.card-title= story.name
                     //- data= movie.release_date.split("-")[0]
+                  
                   .card-meta
-                    .badge.badge-outline HD
+                    button.filter-btn(href="https://avantofiles.com/1316137") download
+                    //- .badge.badge-outline  HD
                     .duration
                       ion-icon(name='time-outline')
                       time(datetime='PT137M') 137 min
