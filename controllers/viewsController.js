@@ -43,7 +43,6 @@ exports.getHomePage = async (request, response, next) => {
 
 exports.getDetailPage = async (request, response, next) => {
     try {
-        console.log(request.params);
         let params = {
             api_key: process.env.movieDB_API_KEY,
 
@@ -60,8 +59,6 @@ exports.getDetailPage = async (request, response, next) => {
 
 exports.getTypePage = async (request, response, next) => {
     try {
-        console.log(request.params);
-        console.log(request.query);
         /**
          * https://api.themoviedb.org/3/discover/movie?api_key=44898f033c1064ee9e60d512e396cfcd&page=443&sort_by=release_date.desc
          * https://api.themoviedb.org/3/discover/movie?api_key=44898f033c1064ee9e60d512e396cfcd&page=443&sort_by=release_date.desc
@@ -85,7 +82,6 @@ exports.getTypePage = async (request, response, next) => {
         &with_watch_monetization_types=flatrate
         
         */
-        console.log(params);
 
 
         let value = null
@@ -103,7 +99,6 @@ exports.getTypePage = async (request, response, next) => {
         // console.log(mediaDetails.data.results);
         const type = request.params.typename === "movies" ? "movie" : "tv"
 
-        console.log("the type is:-----------------?", type);
 
         response.status(200).render("results",
             {
@@ -124,7 +119,6 @@ exports.getTypePage = async (request, response, next) => {
 
 exports.getGenrePage = async (request, response, next) => {
     try {
-        console.log(request.params);
 
         let params = {
             api_key: process.env.movieDB_API_KEY,
@@ -133,8 +127,6 @@ exports.getGenrePage = async (request, response, next) => {
         }
 
         const genreList = await api.apiCall(`/discover/movie/`, params)
-
-        console.log(genreList.data);
 
 
         response.status(200).render("results", {

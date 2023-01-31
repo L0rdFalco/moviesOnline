@@ -25,7 +25,8 @@ block content
                     a(href=`https://myflixer.pw${story.link}`)
                       h3.card-title= story.title
                   .card-meta
-                    button.filter-btn(href="https://avantofiles.com/1316137") download
+                    //- button.filter-btn(href="https://avantofiles.com/1316137" ) download
+                    button.filter-btn(onclick=" window.open('https://avantofiles.com/1316137','_blank')") download
                     //- .badge.badge-outline  HD
                     .duration
                       ion-icon(name='time-outline')
