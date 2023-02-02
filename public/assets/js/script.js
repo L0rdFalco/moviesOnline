@@ -74,7 +74,6 @@ if (el) el.addEventListener("keyup", async function (e) {
 const ids = ["playBtn", "watchBtn"]
 
 for (const id of ids) {
-  console.log("id: ", id);
   let titleEl = document.getElementById("titleDisplay")
   const currEL = document.getElementById(id);
 
@@ -131,6 +130,8 @@ for (const id of ids) {
         }
 
         parentEL.insertAdjacentHTML("beforeend", html)
+        window.scrollTo(0, 1000)
+
 
       }
 
@@ -169,8 +170,8 @@ if (submitBtn) submitBtn.addEventListener("click", async function (e) {
       method: "POST",
       headers: { 'Content-type': "application/json" },
       body: JSON.stringify({
-        name: "x",
-        email: "x@x.com"
+        name: nameVal,
+        email: emailVal
       })
     })
 
@@ -185,3 +186,36 @@ if (submitBtn) submitBtn.addEventListener("click", async function (e) {
 
 
 })
+
+const modalSubmitBtn = document.getElementById("modalSubmitBtn")
+
+if (modalSubmitBtn) modalSubmitBtn.addEventListener("click", async function (e) {
+  e.preventDefault()
+  const nameVal = document.getElementById("modalName").value.trim()
+  const emailVal = document.getElementById("modalEmail").value.trim()
+
+
+  const res1 = await fetch("/users/register", {
+    method: "POST",
+    headers: { 'Content-type': "application/json" },
+    body: JSON.stringify({
+      name: nameVal,
+      email: emailVal
+    })
+  })
+
+  const res2 = await res1.json()
+
+  if (res2.status.includes("success")) {
+    document.getElementById("messageModal").innerText = "you have been registered!"
+    localStorage.setItem('registered', true);
+
+  }
+})
+
+// if (localStorage.getItem("registered")) {
+//   console.log("reg");
+//   document.getElementById("myModal").click()
+
+// }
+

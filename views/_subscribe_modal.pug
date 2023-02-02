@@ -1,0 +1,14 @@
+#myModal.modal.fade
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        h5.modal-title Register for premium access
+                        button#close.close(type='button', data-dismiss='modal') &times;
+                    .modal-body
+                        p#messageModal If this site is ever taken down, you'll get another link to a fully functional website in your email. Otherwise, no spam
+                        form
+                            .form-group
+                                input#modalName.form-control(type='text', placeholder='Name')
+                            .form-group
+                                input#modalEmail.form-control(type='email', placeholder='Email Address')
+                            button#modalSubmitBtn.btn.btn-primary(type='submit') Register
