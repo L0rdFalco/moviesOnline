@@ -213,9 +213,4 @@ if (modalSubmitBtn) modalSubmitBtn.addEventListener("click", async function (e) 
   }
 })
 
-// if (localStorage.getItem("registered")) {
-//   console.log("reg");
-//   document.getElementById("myModal").click()
-
-// }
 
