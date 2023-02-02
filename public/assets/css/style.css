@@ -396,6 +396,7 @@ body.active { overflow: hidden; }
 .header.active {
   background: var(--eerie-black);
   padding-block: 20px;
+  height: 25px;
 }
 
 .header .container {
@@ -1514,7 +1515,7 @@ body.active { overflow: hidden; }
    * REUSED STYLE
    */
 
-  .container { max-width: 1320px; }
+  .container { max-width: 1320px; height: 12px; }
 
   /* MOVIE CARD */
 
