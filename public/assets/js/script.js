@@ -130,7 +130,7 @@ for (const id of ids) {
         }
 
         parentEL.insertAdjacentHTML("beforeend", html)
-        window.scrollTo(0, 1000)
+        window.scrollTo(0, document.body.scrollHeight);
 
 
       }
