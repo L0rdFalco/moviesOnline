@@ -98,15 +98,18 @@ for (const id of ids) {
         let html = ""
         parentEL.innerHTML = ""
 
+
         for (const storyData of res2.data) {
+          let link = `https://myflixer.pw${storyData.link}`
+          console.log(link);
           html += `
           <li>
             <div class="movie-card" id="downloadStoryBtn">
-                <a target="_blank" href=https://myflixer.pw${storyData.link}>
+                <a onclick=" window.open('${link}','_blank')">
                   <figure class="card-banner"><img src=${storyData.poster} alt="${storyData.title} movie poster"></figure>
                 </a>
                 <div class="title-wrapper">
-                  <a target="_blank" href=https://myflixer.pw${storyData.link}>
+                  <a onclick=" window.open('${link}','_blank')">
                       <h3 class="card-title">${storyData.title}</h3>
                   </a>
                   <time datetime="2022">2022</time>

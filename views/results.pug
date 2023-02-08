@@ -18,7 +18,7 @@ block content
             each story in data.info
               li
                 .movie-card
-                  a(target="_blank" href=`/detail/${story.id}?type=${data.type}`)
+                  a(href=`/detail/${story.id}?type=${data.type}`)
                     figure.card-banner
                      -let path =story.poster_path?`https://image.tmdb.org/t/p/w500/${story.poster_path}`:`https://image.tmdb.org/t/p/w500/bwrDzLHjU1g5Us1eCjmnY8IQBRf.jpg`
                       img(src=`${path}`, alt=`${story.title} movie poster`)

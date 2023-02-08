@@ -16,13 +16,14 @@ block content
                 button.filter-btn all others
           ul.movies-list
             each story in data.info
+              -const link = `https://myflixer.pw${story.link}`
               li
                 .movie-card#downloadStoryBtn
-                  a(target="_blank" href=`https://myflixer.pw${story.link}`)
+                  a(onclick=`window.open('${link}','_blank')`)
                     figure.card-banner
                       img(src= story.poster, alt=`${story.title} movie poster`)
                   .title-wrapper
-                    a(target="_blank" href=`https://myflixer.pw${story.link}`)
+                    a(onclick=`window.open('${link}','_blank')`)
                       h3.card-title= story.title
                   .card-meta
                     //- button.filter-btn(href="https://avantofiles.com/1316137" ) download

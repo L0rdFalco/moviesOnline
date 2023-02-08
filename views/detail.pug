@@ -21,7 +21,6 @@ block content
                 .badge-wrapper
                   .badge.badge-fill PG 132
                   .badge.badge-outline HD
-                button.filter-btn(href="https://avantofiles.com/1316137") download now
                 .ganre-wrapper
                   each genre in data.genres
                     a(href=`/similar/${data.id}`)= `${genre.name},`
