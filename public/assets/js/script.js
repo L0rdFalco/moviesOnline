@@ -102,11 +102,11 @@ for (const id of ids) {
           html += `
           <li>
             <div class="movie-card" id="downloadStoryBtn">
-                <a href=https://myflixer.pw${storyData.link}>
+                <a target="_blank" href=https://myflixer.pw${storyData.link}>
                   <figure class="card-banner"><img src=${storyData.poster} alt="${storyData.title} movie poster"></figure>
                 </a>
                 <div class="title-wrapper">
-                  <a href=https://myflixer.pw${storyData.link}>
+                  <a target="_blank" href=https://myflixer.pw${storyData.link}>
                       <h3 class="card-title">${storyData.title}</h3>
                   </a>
                   <time datetime="2022">2022</time>
