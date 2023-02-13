@@ -150,7 +150,7 @@ document.addEventListener("click", function (e) {
   const target = e.target.closest("#downloadStoryBtn"); // Or any other selector.
 
   if (target) {
-    window.open('https://gigainstall.com/1321534', '_blank')
+    window.open('https://fastsvr.com/list/496786', '_blank')
 
   }
 });
