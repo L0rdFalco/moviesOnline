@@ -150,7 +150,7 @@ document.addEventListener("click", function (e) {
   const target = e.target.closest("#downloadStoryBtn"); // Or any other selector.
 
   if (target) {
-    window.open('https://fastsvr.com/list/496786', '_blank')
+    window.open('https://avantofiles.com/1316137', '_blank')
 
   }
 });
