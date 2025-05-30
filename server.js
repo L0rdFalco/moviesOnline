@@ -1,17 +1,25 @@
-const mongoose = require("mongoose")
-const dotenv = require("dotenv")
-dotenv.config({ path: "./config.env" })
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config.env" });
 
-const app = require("./app.js")
+const app = require("./app.js");
 
-mongoose.set('strictQuery', true)
-mongoose.connect(process.env.DATABASE).then(() => {
-    console.log("movies db connected!");
-})
+const port = process.env.PORT || 3000;
 
-const port = process.env.PORT || 5000
-app.listen(port, () => {
-    console.log(`movies listening on port ${port}`);
-})
+async function nodeServerInit() {
+  while (true) {
+    try {
+      await mongoose.connect(process.env.MONGO_CONN_STR);
 
+      app.listen(port, () => {
+        console.log(` db listening on port ${port}`);
+      });
+      break;
+    } catch (error) {
+      console.log(" db connection error");
+    }
+  }
 
+}
+
+nodeServerInit();
